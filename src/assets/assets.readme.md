@@ -1,0 +1,1 @@
+Stores static assets like images and fonts.
