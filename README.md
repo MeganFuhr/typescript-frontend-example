@@ -71,3 +71,37 @@ export default defineConfig([
   },
 ])
 ```
+
+## Environment Variables
+
+This project uses a centralized, type-safe configuration system for environment variables.
+
+### Quick Start
+
+1. Copy the example environment file:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. Edit `.env.local` with your configuration:
+   ```env
+   VITE_API_URL=http://localhost:3000
+   VITE_APP_NAME=My App
+   ```
+
+3. Use in your code:
+   ```typescript
+   import { config } from './config/env';
+   
+   const apiUrl = config.apiUrl; // Type-safe!
+   ```
+
+### Security Notes
+
+- ✅ All environment variables must be prefixed with `VITE_` to be exposed to the client
+- ⚠️ Never store secrets or sensitive data in frontend environment variables
+- ✅ Configuration is validated on application startup
+- ✅ `.env.local` is automatically gitignored
+
+For detailed documentation, see [docs/ENVIRONMENT_VARIABLES.md](docs/ENVIRONMENT_VARIABLES.md)
+
