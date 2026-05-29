@@ -105,8 +105,8 @@ export default defineConfig({
     // Clear output directory before build
     emptyOutDir: true,
     
-    // Minification
-    minify: 'esbuild',
+    // Minification (Vite 8 uses Rolldown's built-in minifier)
+    minify: true,
     
     // Target modern browsers
     target: 'esnext',
