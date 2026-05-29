@@ -1,9 +1,10 @@
 import { Box, Toolbar } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Navigation from './Navigation';
+import LoadingFallback from '../LoadingFallback';
 
 const Layout = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -27,8 +28,9 @@ const Layout = () => {
           }}
         >
           <Toolbar /> {/*  Used for spacing instead of margin/padding top */}
+          <Suspense fallback={<LoadingFallback />}>
             <Outlet />
-          {/* </Box> */}
+          </Suspense>
         </Box>
       </Box>
       <Footer />
